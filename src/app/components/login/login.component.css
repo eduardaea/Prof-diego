@@ -1,0 +1,62 @@
+.logincontainer{
+    background-image: url(https://media.istockphoto.com/photos/sports-background-redblue-colors-of-traditional-soft-floor-covering-picture-id1310787194?b=1&k=20&m=1310787194&s=170667a&w=0&h=sE-da4eRAaV9mQ-lhVoO8NBLSnzCLouxHmnuzyVBC30=);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100vh;
+    min-height: 100vh;
+}
+.form-login{
+    height: 100vh;
+    width: auto;
+    display:flex ;
+    justify-content: center;
+    align-items: center; 
+    color: white; 
+}
+
+.form-space{
+    height: 100%;
+    width: 25%;
+}
+.img-user{
+    
+    background-image: url(https://img1.gratispng.com/20210616/tle/transparent-icon-karate-training-judo-avatar-60caace0d2b021.188483701623895264863.jpg);
+    
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 4em;
+    left: 35%;
+}
+
+.form{
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: #49505780;
+    border-radius: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-input{
+    width: 70%;
+    border-radius: 1rem;
+}
+
+a{
+    color: rgb(54, 50, 50);
+    font-weight: 400;
+}
