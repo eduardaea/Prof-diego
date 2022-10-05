@@ -8,12 +8,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { BoletosComponent } from './components/boletos/boletos.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    InicioComponent
+    InicioComponent,
+    BoletosComponent,
+    NavComponent,
+    
   ],
   imports: [
     BrowserModule,
