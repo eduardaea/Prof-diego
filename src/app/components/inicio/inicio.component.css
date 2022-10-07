@@ -25,6 +25,7 @@
 .button-cards{ 
     background-color: #292C24;
     color: white;
+    border-color: transparent;
 }
 .card-body{
     display: flex;
