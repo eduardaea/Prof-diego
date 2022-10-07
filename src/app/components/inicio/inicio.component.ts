@@ -10,15 +10,15 @@ export class InicioComponent implements OnInit {
 
   constructor(
     private router: Router
-  ) {
-   
-   }
+  ) {}
 
   ngOnInit(): void {
   }
 
   irBoletos(){
-    this.router.navigate(['/boletos'])
+    this.router.navigate(['boletos'])
   }
-
+  irAlunos(){
+    this.router.navigate(['alunos'])
+  }
 }
