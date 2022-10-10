@@ -1,0 +1,40 @@
+.container-alunos{
+    min-width: 100vw;
+    min-height: 100vh;
+    
+    max-width: 100vw;
+    height: auto;
+    scroll-behavior: auto;
+   
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Marcellus', serif;
+   
+}
+.obs{
+    color: red;
+    font-weight: 600;
+   
+}
+
+.card-title,
+.card-text{
+
+    text-align: center;
+}
+
+.card-img-top{
+    width: 150px;
+    height: 150px;
+    margin-left: 20%;
+    
+}
+
+.card-group{
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-end;
+    align-items: center;
+ 
+}
