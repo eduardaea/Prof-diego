@@ -1,5 +1,6 @@
 package com.duda.ProfDiego.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Type;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity 
@@ -23,13 +26,16 @@ public class AlunosModel{
 	private long id;
 	
 	@NotNull(message= "o atributo Nome é obrigatório")
-	private long nome;
+	private String nome;
 	
-	private long nascimento;
+
+	@Type(type="date")
+	private Date purchaseDate;
+	private Date nascimento;
 	
-	private long observacao;
+	private String observacao;
 	
-	private long imguser;
+	private String imguser;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("alunos")
@@ -54,35 +60,35 @@ public class AlunosModel{
 		this.id = id;
 	}
 
-	public long getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(long nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public long getNascimento() {
+	public Date getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(long nascimento) {
+	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
 
-	public long getObservacao() {
+	public String getObservacao() {
 		return observacao;
 	}
 
-	public void setObservacao(long observacao) {
+	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
 
-	public long getImguser() {
+	public String getImguser() {
 		return imguser;
 	}
 
-	public void setImguser(long imguser) {
+	public void setImguser(String imguser) {
 		this.imguser = imguser;
 	}
 	

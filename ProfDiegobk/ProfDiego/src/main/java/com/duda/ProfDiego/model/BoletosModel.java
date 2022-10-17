@@ -20,7 +20,7 @@ public class BoletosModel {
 	
 	@NotNull(message="O campo de número do boleto não pode estar vazio")
 	@Size(min = 47, max = 48, message = "o código do boleto deve ter entre 47 e 48 digitos")
-	private Long codigo;
+	private String codigo;
 	
 	@NotNull(message="O campo de vencimento do boleto não pode estar vazio")
 	private String vencimento;
@@ -43,12 +43,12 @@ public class BoletosModel {
 	}
 
 
-	public Long getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
