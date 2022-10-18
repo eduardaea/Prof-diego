@@ -1,5 +1,7 @@
 package com.duda.ProfDiego.model;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +11,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Type;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,8 +28,10 @@ public class BoletosModel {
 	@Size(min = 47, max = 48, message = "o código do boleto deve ter entre 47 e 48 digitos")
 	private String codigo;
 	
+	@JsonFormat(pattern="dd-MM-yyyy")
+	@Type(type="date")
 	@NotNull(message="O campo de vencimento do boleto não pode estar vazio")
-	private String vencimento;
+	private Date vencimento;
 	
 	
 	private String linkboleto;
@@ -54,12 +61,12 @@ public class BoletosModel {
 	}
 
 
-	public String getVencimento() {
+	public Date getVencimento() {
 		return vencimento;
 	}
 
 
-	public void setVencimento(String vencimento) {
+	public void setVencimento(Date vencimento) {
 		this.vencimento = vencimento;
 	}
 

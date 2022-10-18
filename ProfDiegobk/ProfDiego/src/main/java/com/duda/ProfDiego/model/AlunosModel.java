@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity 
@@ -29,8 +30,8 @@ public class AlunosModel{
 	private String nome;
 	
 
+	@JsonFormat(pattern="dd-MM-yyyy")
 	@Type(type="date")
-	private Date purchaseDate;
 	private Date nascimento;
 	
 	private String observacao;

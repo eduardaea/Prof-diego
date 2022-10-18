@@ -27,12 +27,18 @@ public class AlunosController {
 	@Autowired
 	private AlunosRepository alunosRepository;
 	
+	@GetMapping
+	public ResponseEntity<List<AlunosModel>>getAll(){
+		return ResponseEntity.ok(alunosRepository.findAll());
+	}
+	
 	 @GetMapping("/nome/{nome}")
 	 public ResponseEntity<List<AlunosModel>>getById(@PathVariable String nome){
 		 return ResponseEntity.ok(alunosRepository.findAllByNomeContainingIgnoreCase(nome));
 	 }
 	 @PostMapping
 	 public ResponseEntity<AlunosModel>post(@Valid @RequestBody AlunosModel aluno){
+		 System.out.printf("o aluno",aluno); 
 		 AlunosModel createdAluno = alunosRepository.save(aluno);
 		 return ResponseEntity.status(HttpStatus.CREATED).body(createdAluno);
 	 } 
