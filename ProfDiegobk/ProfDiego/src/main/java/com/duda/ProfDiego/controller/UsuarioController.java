@@ -15,7 +15,7 @@ import com.duda.ProfDiego.model.UsuariosModel;
 import com.duda.ProfDiego.repository.UsuariosRepository;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
@@ -24,6 +24,7 @@ public class UsuarioController {
 	
 	@PostMapping
 	public ResponseEntity<UsuariosModel>post(@Valid @RequestBody UsuariosModel usuario){
+	System.out.println(usuario);
 	UsuariosModel createdUsuario = usuarioRepository.save(usuario);
 	return	ResponseEntity.status(HttpStatus.CREATED).body(createdUsuario);
 	}
