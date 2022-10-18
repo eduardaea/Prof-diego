@@ -11,6 +11,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { BoletosComponent } from './components/boletos/boletos.component';
 import { NavComponent } from './components/nav/nav.component';
 import { AlunosComponent } from './components/alunos/alunos.component';
+import { HttpClientModule} from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { AlunosComponent } from './components/alunos/alunos.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

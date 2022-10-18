@@ -12,6 +12,12 @@
     font-family: 'Marcellus', serif;
    
 }
+
+.icon{
+    min-height: 2%;
+    
+}
+
 .obs{
     color: red;
     font-weight: 600;
