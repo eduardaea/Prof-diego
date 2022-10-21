@@ -33,5 +33,13 @@ export class AlunosComponent implements OnInit {
     })
   }
 
+  deletarAluno(id: number | undefined){
+    this.alunosService.deleteAluno(Number(id)).subscribe(()=>{
+      console.log("Aluno Cadastrado com sucesso!")
+      this.getAll()
+    })
+
+  }
+
 
 }

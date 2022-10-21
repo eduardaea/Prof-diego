@@ -13,6 +13,11 @@
                 <p class=" card-text obs">Observação:</p>
                 <p class="card-text">{{aluno.observacao}}</p>
                 </div>
+                <div class="buttons-group">
+                  <button class="btn btn-primary">Editar<i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn btn-primary" (click)="deletarAluno(aluno.id)">Excluir</button>
+                </div>
             </div>
 
         </div>
@@ -27,10 +32,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <input [(ngModel)]='alunos.nome' class="form-control" type="text" placeholder="Seu nome" aria-label="nome">
-            <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento" aria-label="nascimento">
-            <input [(ngModel)]='alunos.observacao' class="form-control" type="text-area" placeholder="observacao" aria-label="observacao">
-            <input [(ngModel)]='alunos.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.nome' class="form-control" type="text" placeholder="Nome*" aria-label="nome">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.observacao' class="form-control" type="text-area" placeholder="Observacao" aria-label="observacao">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

@@ -19,4 +19,8 @@ export class AlunosService {
     return this.http.post<Alunos>('http://localhost:8080/alunos',aluno)
   }
 
+  deleteAluno(id:number) :Observable<Alunos>{
+    return this.http.delete<Alunos>(`http://localhost:8080/alunos/${id}`);
+  }
+
 }
