@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.duda.ProfDiego.model.AlunosModel;
@@ -53,7 +52,7 @@ public class AlunosController {
 	 }
 	 
 	 @DeleteMapping("/{id}")
-	 public ResponseEntity<?> delete(@RequestParam String id){
+	 public ResponseEntity<?> delete(@PathVariable String id){
 //		 Long idConv = (Long) id;
 		 Long idConv=Long.parseLong(id);
 		 return alunosRepository.findById(idConv).map(resposta->{
