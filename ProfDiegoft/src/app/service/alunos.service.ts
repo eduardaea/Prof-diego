@@ -9,18 +9,22 @@ import { Observable } from 'rxjs';
 })
 export class AlunosService {
 
+  baseUrl= "http://localhost:8080/alunos";
+
   constructor(private http: HttpClient) { }
 
   getAllAlunos():Observable<Alunos[]> {
-    return this.http.get<Alunos[]>('http://localhost:8080/alunos')
+    return this.http.get<Alunos[]>(this.baseUrl)
   }
 
   postAluno(aluno:Alunos): Observable<Alunos>{
-    return this.http.post<Alunos>('http://localhost:8080/alunos',aluno)
+    return this.http.post<Alunos>(this.baseUrl,aluno)
   }
 
   deleteAluno(id:number) :Observable<Alunos>{
     return this.http.delete<Alunos>(`http://localhost:8080/alunos/${id}`);
   }
-
+  putAluno(aluno:Alunos):Observable<Alunos>{
+    return this.http.put<Alunos>(this.baseUrl,aluno);
+  }
 }

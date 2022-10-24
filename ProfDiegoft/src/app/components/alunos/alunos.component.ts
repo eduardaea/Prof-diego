@@ -11,7 +11,7 @@ export class AlunosComponent implements OnInit {
 
   alunos:Alunos = {};
   listaAlunos:Alunos[];
-  alunoSelecionado: Alunos;
+  alunoSelecionado: Alunos = {};
 
   constructor(
     private alunosService:AlunosService
@@ -37,13 +37,20 @@ export class AlunosComponent implements OnInit {
   deletarAluno(id: number | undefined){
     this.alunosService.deleteAluno(Number(id)).subscribe(()=>{
       console.log("Aluno Cadastrado com sucesso!")
-      this.getAll()
+      this.getAll();
     })
 
   }
 
   selecionarAluno(aluno: Alunos){
     this.alunoSelecionado = aluno;
+  }
+
+  updateAluno(){
+    this.alunosService.putAluno(this.alunoSelecionado).subscribe(()=>{
+      console.log("ATUALIZOU SA PORRA")
+      this.getAll();
+    })
   }
 
 

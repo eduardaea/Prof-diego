@@ -47,7 +47,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)="novoAluno()">Cadastrar</button>
+          <button type="button" class="btn btn-primary" (click)="novoAluno()" data-bs-dismiss="modal">Cadastrar</button>
         </div>
       </div>
     </div>
@@ -63,21 +63,21 @@
         </div>
         <div class="modal-body">
             <div class="mb-3">
-              <input  class="form-control" type="text" placeholder="Nome*" aria-label="nome">
+              <input  [(ngModel)]='alunoSelecionado.nome' class="form-control" type="text" placeholder="Nome*" aria-label="nome">
             </div>
             <div class="mb-3">
-              <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">
+              <input [(ngModel)]='alunoSelecionado.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">
             </div>
             <div class="mb-3">
-              <input [(ngModel)]='alunos.observacao' class="form-control" type="text-area" placeholder="Observacao" aria-label="observacao">
+              <input [(ngModel)]='alunoSelecionado.observacao' class="form-control" type="text-area" placeholder="Observacao" aria-label="observacao">
             </div>
             <div class="mb-3">
-              <input [(ngModel)]='alunos.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
+              <input [(ngModel)]='alunoSelecionado.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)="novoAluno()">Cadastrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateAluno()">Salvar</button>
         </div>
       </div>
     </div>
