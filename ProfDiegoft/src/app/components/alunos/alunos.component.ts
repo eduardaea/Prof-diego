@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class AlunosComponent implements OnInit {
 
   alunos:Alunos = {};
-  listaAlunos:Alunos[]
+  listaAlunos:Alunos[];
+  alunoSelecionado: Alunos;
 
   constructor(
     private alunosService:AlunosService
@@ -41,8 +42,8 @@ export class AlunosComponent implements OnInit {
 
   }
 
-  alunoSelecionado(aluno: AlunosComponent){
-    nome =
+  selecionarAluno(aluno: Alunos){
+    this.alunoSelecionado = aluno;
   }
 
 
