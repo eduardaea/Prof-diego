@@ -41,5 +41,9 @@ export class AlunosComponent implements OnInit {
 
   }
 
+  alunoSelecionado(aluno: AlunosComponent){
+    nome =
+  }
+
 
 }

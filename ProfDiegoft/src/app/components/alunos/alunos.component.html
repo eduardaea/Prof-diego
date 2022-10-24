@@ -14,7 +14,7 @@
                 <p class="card-text">{{aluno.observacao}}</p>
                 </div>
                 <div class="buttons-group">
-                  <button class="btn btn-primary">Editar<i class="fa fa-pencil" aria-hidden="true"></i>
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarAluno">Editar<i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>
                   <button class="btn btn-primary" (click)="deletarAluno(aluno.id)">Excluir</button>
                 </div>
@@ -34,6 +34,36 @@
         <div class="modal-body">
             <div class="mb-3">
               <input [(ngModel)]='alunos.nome' class="form-control" type="text" placeholder="Nome*" aria-label="nome">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.observacao' class="form-control" type="text-area" placeholder="Observacao" aria-label="observacao">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="novoAluno()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="modal fade" id="editarAluno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Aluno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <input  class="form-control" type="text" placeholder="Nome*" aria-label="nome">
             </div>
             <div class="mb-3">
               <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">

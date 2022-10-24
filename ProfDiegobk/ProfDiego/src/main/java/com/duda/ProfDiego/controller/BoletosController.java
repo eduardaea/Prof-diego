@@ -36,5 +36,10 @@ public class BoletosController {
 		BoletosModel newBoleto = boletosRepository.save(boleto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(newBoleto);
 	}
+//	@DeleteMapping
+//	public ResponseEntity<BoletoModel>delete(@RequestParam Long id){
+//		
+//	}
+	
 	
 }
