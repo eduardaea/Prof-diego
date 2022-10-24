@@ -12,6 +12,12 @@
     font-family: 'Marcellus', serif;
    
 }
+
+.icon{
+    min-height: 2%;
+    
+}
+
 .obs{
     color: red;
     font-weight: 600;
@@ -34,7 +40,17 @@
 .card-group{
     display: flex;
     flex-direction: row;
-    justify-items: flex-end;
+    justify-content: space-around;
     align-items: center;
  
 }
+::-webkit-input-placeholder {
+    color: rgba(255, 0, 0, 0.596);
+ }
+
+ .buttons-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+ }

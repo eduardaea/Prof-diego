@@ -1,102 +1,85 @@
 <div class="container-alunos">
     <app-nav></app-nav>
+    <div class="icon"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAluno">
+       Novo Aluno
+      </button></div>
     <div class="card-group">
-        
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
+        <div *ngFor="let aluno of listaAlunos">
+            
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src={{aluno.imguser}} alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{aluno.nome}}</h5>
+                <p class=" card-text obs">Observação:</p>
+                <p class="card-text">{{aluno.observacao}}</p>
+                </div>
+                <div class="buttons-group">
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarAluno" (click)="selecionarAluno(aluno)">Editar<i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn btn-primary" (click)="deletarAluno(aluno.id)">Excluir</button>
+                </div>
             </div>
-        </div>
 
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
-        </div>
-        <div class="card" style="width: 15rem;">
-            <img class="card-img-top" src="../../../assets/img/kimono.png" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">Yago Zacarias</h5>
-            <p class=" card-text obs">Observação:</p>
-            <p class="card-text">O aluno Zacarete é Muito mal comportado</p>
-            </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalAluno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Aluno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.nome' class="form-control" type="text" placeholder="Nome*" aria-label="nome">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.observacao' class="form-control" type="text-area" placeholder="Observacao" aria-label="observacao">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="novoAluno()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MODAL DE EDITAR ALUNO -->
+  <div class="modal fade" id="editarAluno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{alunoSelecionado.nome}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <input  class="form-control" type="text" placeholder="Nome*" aria-label="nome">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.nascimento' class="form-control" type="text" placeholder="Data de nascimento*" aria-label="nascimento">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.observacao' class="form-control" type="text-area" placeholder="Observacao" aria-label="observacao">
+            </div>
+            <div class="mb-3">
+              <input [(ngModel)]='alunos.imguser' class="form-control" type="text" placeholder="Link da foto" aria-label="foto">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="novoAluno()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
