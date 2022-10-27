@@ -13,45 +13,12 @@
                     <th class="ultimo-th" scope="col">Editar</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let boletoItem of listaBoletos">
                 <tr  class="lines">
                     <th scope="row"><i class="fa fa-file-text" aria-hidden="true"></i></th>
-                    <td>0123 1234 4321</td>
-                    <td>Yago Zacarias</td>
+                    <td>{{boletoItem.codigo}}</td>
+                    <td>{{boletoItem.alunos?.nome}}</td>
                     <td>Em aberto</td>
-                    <td class="buttons-action">
-                        <button class="botao"><i><img src="../../../assets/img/loupe.png"></i></button>
-                        <button class="botao"><i><img src="../../../assets/img/printer.png"></i></button>
-                        <button class="botao"><i><img src="../../../assets/img/delete.png"></i></button>
-                    </td>
-                </tr>
-                <tr  class="lines">
-                    <th scope="row"><i class="fa fa-file-text" aria-hidden="true"></i></th>
-                    <td>0123 1234 4321</td>
-                    <td>Eduarda Albuquerque</td>
-                    <td>Concluído</td>
-                    <td class="buttons-action">
-                        <button class="botao"><i><img src="../../../assets/img/loupe.png"></i></button>
-                        <button class="botao"><i><img src="../../../assets/img/printer.png"></i></button>
-                        <button class="botao"><i><img src="../../../assets/img/delete.png"></i></button>
-                    </td>
-                </tr>
-                <tr  class="lines">
-                    <th scope="row"><i class="fa fa-file-text" aria-hidden="true"></i></th>
-                    <td>0123 1234 4321</td>
-                    <td>Guilherme Laurentino</td>
-                    <td>Em aberto</td>
-                    <td class="buttons-action">
-                        <button class="botao"><i><img src="../../../assets/img/loupe.png"></i></button>
-                        <button class="botao"><i><img src="../../../assets/img/printer.png"></i></button>
-                        <button class="botao"><i><img src="../../../assets/img/delete.png"></i></button>
-                    </td>
-                </tr>
-                <tr  class="lines">
-                    <th scope="row"><i class="fa fa-file-text" aria-hidden="true"></i></th>
-                    <td>0123 1234 4321</td>
-                    <td>Josana Ribeiro</td>
-                    <td>Concluído</td>
                     <td class="buttons-action">
                         <button class="botao"><i><img src="../../../assets/img/loupe.png"></i></button>
                         <button class="botao"><i><img src="../../../assets/img/printer.png"></i></button>
@@ -62,5 +29,43 @@
             </table>
         </div>
     </div>   
-
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAluno">Novo Boleto</button>
 </div>
+
+<!-- NOVO BOLETO -->
+<div class="modal fade" id="modalAluno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Boleto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+                <form enctype="multipart/form-data" action="upload.php" method="post">
+                <div class="mb-3">
+                  <input [(ngModel)]='boleto.codigo' name="codigo" class="form-control" type="text" placeholder="Codigo do Boleto*" aria-label="nome">
+                </div>
+                <div class="mb-3">
+                  <input [(ngModel)]='boleto.vencimento' name="vencimento" value="vencimento" class="form-control" type="date" placeholder="Data de vencimento*" aria-label="nascimento">
+                </div> 
+                <div class="mb-3">
+                  <select class="form-control" name="alunos" id="alunos" [(ngModel)]='boleto.alunos'>
+                    <option *ngFor='let aluno of listaAlunos' value="{{aluno}}">
+                        {{aluno.nome}}
+                    </option>
+                  </select>
+                </div> 
+                <div><input name="descricao_evento" type="textarea"/></div>
+                <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+                        <div><input name="imagem" type="file"/></div>
+                </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="selectBoleto()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

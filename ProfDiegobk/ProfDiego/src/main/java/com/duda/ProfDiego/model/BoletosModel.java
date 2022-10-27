@@ -1,5 +1,6 @@
 package com.duda.ProfDiego.model;
 
+import java.sql.Blob;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -33,8 +34,8 @@ public class BoletosModel {
 	@NotNull(message="O campo de vencimento do boleto não pode estar vazio")
 	private Date vencimento;
 	
-	
-	private String linkboleto;
+	@NotNull(message="Preencher com o pdf do boleto")
+	private Blob linkboleto;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("boletos")
@@ -71,12 +72,12 @@ public class BoletosModel {
 	}
 
 
-	public String getLinkboleto() {
+	public Blob getLinkboleto() {
 		return linkboleto;
 	}
 
 
-	public void setLinkboleto(String linkboleto) {
+	public void setLinkboleto(Blob linkboleto) {
 		this.linkboleto = linkboleto;
 	}
 	
