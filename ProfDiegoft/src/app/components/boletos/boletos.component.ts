@@ -16,6 +16,7 @@ export class BoletosComponent implements OnInit {
   alunosSelecionado: Alunos;
   boleto : Boletos = {};
   statusBoleto: boolean;
+  boletoFile: Blob;
 
   atualDate = (new Date());
 
@@ -41,23 +42,36 @@ export class BoletosComponent implements OnInit {
     })
   }
 
-  selectBoleto(){
-    console.log(this.boleto)
-  }
-
   postBoleto(){
+    //console.log(this.boleto.linkboleto);
+    // if (this.boleto.linkboleto) {
+      // console.log(typeof this.boletoFile);
+      // const reader = new FileReader()
+      // reader.readAsDataURL(this.boletoFile); 
+      // reader.onloadend = function() {
+      //   var base64data = reader.result;                
+      //   console.log(base64data);
+      // }
+    // }
     
     console.log(JSON.stringify(this.boleto))
-    //  this.boletosService.postBoletos(this.boleto).subscribe(resp=>{
-    //    console.log("Cadastrou")
-    //    this.getAllBoletos()
-    //  })
+     this.boletosService.postBoletos(this.boleto).subscribe(resp=>{
+       console.log("Cadastrou")
+       this.getAllBoletos()
+     })
   }
 
-// atualDate = (new Date());
+  transform(event: any): void {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.boleto.linkboleto = String(reader.result);
+       
+    };
+  }
 
   verificarData(){
-   
     if(this.boleto.vencimento){
 
       if(this.boleto.vencimento.getFullYear() >= this.atualDate.getFullYear() && 

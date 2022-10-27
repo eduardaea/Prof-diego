@@ -1,8 +1,19 @@
 <div class="container-alunos">
     <app-nav></app-nav>
-    <div class="icon"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAluno">
-       Novo Aluno
-      </button></div>
+    <div class="alunos-menu">
+      <h1 class="boletos">Alunos</h1>
+      <button class="alunos-btn" data-bs-toggle="modal" data-bs-target="#modalAluno">+</button>
+  
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+  </div>
+
+
     <div class="card-group">
         <div *ngFor="let aluno of listaAlunos">
             

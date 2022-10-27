@@ -58,13 +58,13 @@
                 </div> 
                 <div><input name="descricao_evento" type="textarea"/></div>
                 <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
-                        <div><input name="imagem" type="file"/></div>
+                        <div><input [(ngModel)]='boletoFile' (change)="transform($event)" name="Blob" type="file"/></div>
                 </form>
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="selectBoleto()">Cadastrar</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="postBoleto()">Cadastrar</button>
         </div>
       </div>
     </div>
